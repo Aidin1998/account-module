@@ -1,11 +1,11 @@
 package main
 
 import (
-	"account-module/config"
-	"account-module/logger"
+	"github.com/Aidin1998/account-module/config"
+	"github.com/Aidin1998/account-module/logger"
+
 	"net/http"
 
-	"github.com/Aidin1998/simple-go-auth/auth"
 	"github.com/labstack/echo/v4"
 	"github.com/labstack/echo/v4/middleware"
 )
