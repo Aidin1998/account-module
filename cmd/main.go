@@ -15,6 +15,7 @@ func NewServer() *echo.Echo {
   logger.Init()
 
   e := echo.New()
+  e.Logger = logger.Logger.Sugar()
   // JWT middleware stub; uses simple-go-auth to get secret
   e.Use(middleware.JWTWithConfig(middleware.JWTConfig{
     SigningKey: []byte(auth.GetJWTSecret()),
@@ -22,6 +23,7 @@ func NewServer() *echo.Echo {
 
   // Health check
   e.GET("/healthz", func(c echo.Context) error {
+    logger.Logger.Info("Health check invoked")
     return c.JSON(http.StatusOK, map[string]string{"status": "OK"})
   })
 
